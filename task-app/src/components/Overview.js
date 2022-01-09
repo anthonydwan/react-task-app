@@ -1,8 +1,18 @@
 import React from "react";
 
-const [state, setstate] = useState(initialState);
-function Overview() {
-  return <div>Hey</div>;
+function Overview(props) {
+  const { currTask } = props;
+
+ 
+  return (
+    <div>
+      <ol>
+        {currTask.map((task) => (
+          <li>{task} </li>
+        ))}
+      </ol>
+    </div>
+  );
 }
 
 export default Overview;
