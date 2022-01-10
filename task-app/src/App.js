@@ -7,16 +7,25 @@ function App() {
   const [currTasklist, setTasklist] = useState([]);
 
   const handleChange = (event) => {
-    setText((prevText) => {
-      
-      prevText.text = event.target.value;
-    });
+    setText(
+      (prevText) =>
+        (prevText = {
+          text: event.target.value,
+          id: prevText.id,
+        })
+    );
   };
 
   const handleTaskInput = (event) => {
     event.preventDefault();
-    setTasklist((prevTask) => prevTask.concat(["cool"]));
-    setText(() => "");
+    setTasklist((prevTask) => prevTask.concat(currText.text));
+    setText(
+      (prevText) =>
+        (prevText = {
+          text: "",
+          id: prevText.id,
+        })
+    );
   };
 
   return (
